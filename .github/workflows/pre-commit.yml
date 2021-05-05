@@ -15,8 +15,10 @@ jobs:
 
     - name: Install System Deps
       run: |
+        echo deb http://deb.debian.org/debian buster-backports main contrib non-free | tee /etc/apt/sources.list.d/buster-backports.list
         apt-get update
-        apt-get install -y git libcurl4-openssl-dev gcc libssl-dev libmagic1
+        apt-get install -y -t buster-backports git
+        apt-get install -y libcurl4-openssl-dev gcc libssl-dev libmagic1
 
     - uses: actions/checkout@v2
 
